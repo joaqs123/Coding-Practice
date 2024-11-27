@@ -34,7 +34,6 @@ int main() {
 
 /*
 # Optimal answer found through research
-testing 1,2,3
 
 
 #include <iostream>
