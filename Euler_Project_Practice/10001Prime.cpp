@@ -21,7 +21,7 @@ int findNthPrime(int n) {
     // Sieve of Eratosthenes
     for (int p = 2; p * p <= upperBound; p++) {
         if (sieve[p]) {
-            for (int multiple = p * p; multiple <= upperBound; multiple += p) {
+            for (int multiple = p * p; multiple <= upperBound; multiple += p) { //Start at the prime number squared. i.e: if at 3 start at 3x3 all previous multiples are accounted for
                 sieve[multiple] = false;
             }
         }
@@ -46,7 +46,7 @@ int main() {
     cin >> n;
 
     int nthPrime = findNthPrime(n);
-    cout << "The " << n << "th prime number is: " << nthPrime << endl;
+    cout << "The " << n << " prime number is: " << nthPrime << endl;
 
     return 0;
 }
