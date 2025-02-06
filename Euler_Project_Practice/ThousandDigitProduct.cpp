@@ -1,9 +1,23 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <fstream>
 using namespace std;
 
 int main () {
+    ifstream inputFile("ThousandDigitNumber.txt");
+    if (!inputFile.is_open()) {
+        cerr << "Error: Could not open file!" << endl;
+        return 1;
+    }
+
+    string line;
+    while (getline(inputFile, line)){
+        cout << line << endl;
+    }
+        
+    inputFile.close();
+    return 0;
     /*
     1. read from a csv or text file
     2. store it into an array
