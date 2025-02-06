@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <fstream>
+#include <cstdint>
 using namespace std;
 
 vector<int> thouDigitArray(){
@@ -28,16 +29,33 @@ vector<int> thouDigitArray(){
     return digits;
 }
 
-int largestProduct(){
+uint64_t largestProduct(){
     /*
     Here is where i will go through the array and search for the largest product of
     13 adjacent numbers
     - include logic for cases with "0"
     */
-    vector<int> thouArray = thouDigitArray();
+    vector<int> digits = thouDigitArray();
 
-    
-    return 0;
+    if (digits.empty()){
+        cerr << "Failed to read digits from the file" << endl;
+    }
+
+    uint64_t product = 1;
+    uint64_t biggestProduct = 0;
+
+    for (size_t i = 0; i < (digits.size() - 13); i++){
+        for (size_t j = i; j < i + 13; j++){
+            product = product * digits[j];
+        }
+
+        if (product > biggestProduct){
+            biggestProduct = product;
+        }
+        product = 1;
+    }
+    return biggestProduct;
+
 }
 
 int main () {
@@ -48,16 +66,7 @@ int main () {
       3i. if there is a skip the section and move away *13 spaces* (check exact math later)
     4. print result
     */
-
-    vector<int> digits = thouDigitArray();
-
-    if (digits.empty()){
-        cerr << "Failed to read digits from the file" << endl;
-    }
-
-    for (size_t i = 0; i < 5 && i < digits.size(); i++){
-        cout << digits[i] << " ";
-    }
-
+   cout << "The largest product is: " << largestProduct();
+    
     return 0;
 }
