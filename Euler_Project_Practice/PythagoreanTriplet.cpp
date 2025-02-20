@@ -17,18 +17,6 @@ bool isWholeSquareRoot(int num){
 
 int isTriplet (){
 
-    /*
-    loop 1 will go from 10 -> 495
-    loop 2 will go from 495 -> 10
-    find their product, square root it
-    see if the three numbers are added up to 1000
-    
-    eg.
-    10^2 + 495^2 ~= 495.### (which will be 1000 when added together)
-    see if sqrt(ans) is a whole number and not decimal
-    add them up to 1000 to confirm
-    */
-
     int a, b, c, sum, product;
     for (int i = 10; i < 495; i++){
         a = i;
