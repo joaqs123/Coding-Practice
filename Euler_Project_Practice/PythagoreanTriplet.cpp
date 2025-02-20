@@ -32,18 +32,16 @@ int isTriplet (){
     int a, b, c, sum, product;
     for (int i = 10; i < 495; i++){
         a = i;
-    }
+        for (int j = 495; j > 10; j--){
+            b = j;
+            c = pow(a, 2) + pow(b, 2);
 
-    for (int i = 495; i > 10; i--){
-        b = i;
-    }
-
-    c = pow(a, 2) + pow(b, 2);
-
-    if(isWholeSquareRoot(c)){
-        sum = a + b + sqrt(c);
-        if (sum == 1000){
-            return a*b*(sqrt(c));
+            if(isWholeSquareRoot(c)){
+            sum = a + b + sqrt(c);
+                if (sum == 1000){
+                    return a*b*(sqrt(c));
+                }
+            }
         }
     }
 
