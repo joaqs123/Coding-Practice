@@ -45,3 +45,59 @@ int main (){
     cout << "The product of is: " << isTriplet() << endl;
     return 0;
 }
+
+/*
+
+===Alternate way===
+
+Mathemtical way to find triplets:
+
+a = m^2 - n^2
+b = 2mn
+c = m^2 + n^2
+
+Where:
+m > n > 0
+(m and n are coprime and m-n is odd)
+
+Using a + b + c = 1000:
+
+m^2 - n^2 + 2mn + m^2 + n^2 = 1000
+
+This simplifies to:
+
+m(m+n) = 500
+
+Assuming n to be the smallest (n = 1) and the equation is now m(m+1) <= 500
+it breaks down to a quadratic forumla with the upper limit being m = 22 therefore the loop will have to go until m < 22
+
+calculating n is just a rearrangement of the m(m+n) = 500 equation:
+n = (500/m) - m
+k is used a place holder
+
+if (500 % m == 0) { this ensure that n is an integer as well
+
+----------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+    for (int m = 1; m < 22; ++m) { // Limit derived from solving m(m + n) <= 500
+        if (500 % m == 0) {
+            int k = 500 / m;
+            int n = k - m;
+            if (n > 0 && (m > n)) {
+                a = m * m - n * n;
+                b = 2 * m * n;
+                c = m * m + n * n;
+                cout << "The triplet is: (" << a << ", " << b << ", " << c << ")" << endl;
+                cout << "The product is: " << a * b * c << endl;
+                return 0;
+            }
+        }
+    }
+    return 0;
+}
+
+*/
